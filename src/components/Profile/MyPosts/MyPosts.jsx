@@ -4,15 +4,21 @@ import s from './MyPosts.module.css';
 
 const MyPosts = () => {
     return (
-        <div className={s.content}>
-            My post
-            <textarea></textarea>
-            <button>Add post</button>
+        <div className={s.postBlock}>
+            <h3>My post</h3>
+            <div>
+                <textarea></textarea>
+            </div>
+            <div>
+                <button>Add post</button>
+            </div>
             <div>
                 New post
             </div>
-            <Post message="Hi, how are you?" likeCount="1" />
-            <Post message="It's my first post" likeCount="2" />
+            <div className={s.posts}>
+                <Post message="Hi, how are you?" likeCount="1" />
+                <Post message="It's my first post" likeCount="2" />
+            </div>
         </div>
     )
 }
