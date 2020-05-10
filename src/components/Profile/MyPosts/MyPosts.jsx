@@ -1,8 +1,8 @@
 import React from 'react';
-import Post from './Post/Post'
 import s from './MyPosts.module.css';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
     return (
         <div className={s.postBlock}>
             <h3>My post</h3>
@@ -16,8 +16,7 @@ const MyPosts = () => {
                 New post
             </div>
             <div className={s.posts}>
-                <Post message="Hi, how are you?" likeCount="1" />
-                <Post message="It's my first post" likeCount="2" />
+                {props.posts}
             </div>
         </div>
     )
