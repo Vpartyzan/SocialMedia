@@ -22,8 +22,8 @@ function App(props) {
           <Route path='/profile' 
                  render={ () => <Profile posts={props.posts}/>} />
           <Route path='/dialogs' 
-                 render={ () => <Dialogs dialogsElem={props.dialogsElem} 
-                                         messageElem={props.messageElem}/>} />          
+                 render={ () => <Dialogs dialogs={props.dialogs} 
+                                         messages={props.messages}/>} />          
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/setting' component={Setting} />
