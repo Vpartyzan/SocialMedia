@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -13,22 +13,23 @@ import Setting from './components/Setting/Setting';
 
 
 function App(props) {  
-  return (
-    <BrowserRouter>
+  return (    
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
           <Route path='/profile' 
-                 render={ () => <Profile state={props.state.profilePage}/>} />
+                 render={ () => <Profile state={props.state.profilePage} 
+                                         addPost={props.addPost} 
+                                         updateNewPostText={props.updateNewPostText}/>} 
+                                />
           <Route path='/dialogs' 
                  render={ () => <Dialogs state={props.state.dialogsPage} />} />          
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/setting' component={Setting} />
         </div>
-      </div>
-    </BrowserRouter>
+      </div>   
   );
 }
 

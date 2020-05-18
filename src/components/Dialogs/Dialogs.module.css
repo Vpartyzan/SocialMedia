@@ -1,6 +1,14 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+
+    grid-template-areas:
+    "d m"
+    "d t";
+}
+
+.dialogsItems {
+    grid-area: d;
 }
 
 .dialogsItems a {
@@ -44,5 +52,29 @@
 }
 
 .messages {
+    display: block;    
+    grid-area: m;
+}
+
+.text {
+    grid-area: t;
+}
+
+.text textarea {
+    margin: 0px;
+    width: -webkit-fill-available;
+    height: 82px;
+    border-radius: 1em;
+    resize: none;
+}
+
+.text button {
+    margin: 0 auto;
     display: block;
+    border-radius: 1em;
+    padding: 10px 30px;
+    background: rgb(192, 77, 24);
+    box-shadow: 5px 10px 10px grey;
+    
+    color: black;
 }

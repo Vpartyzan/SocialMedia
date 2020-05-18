@@ -6,7 +6,7 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
 
     let dialogsElements = props.state.dialogs.map ( d => <DialogItem name={d.name} id={d.id} />);    
-    let messageElements = props.state.messages.map ( function(m) {
+    let messageElements = props.state.messages.map ( m => {
                                                         if (m.id % 2 !== 0) {
                                                            return <Message class={s.sendFrom} message={m.message} />
                                                         } else {
@@ -21,6 +21,10 @@ const Dialogs = (props) => {
             </div>            
             <div className={s.messages}>
                 {messageElements}
+            </div>
+            <div className={s.text}>
+                <textarea></textarea>
+                <button>Send message</button>
             </div>
         </div>
     )
