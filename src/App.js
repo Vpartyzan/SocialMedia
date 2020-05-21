@@ -20,10 +20,12 @@ function App(props) {
         <div className="app-wrapper-content">
           <Route path='/profile' 
                  render={ () => <Profile state={props.state.profilePage} 
-                                         dispatch={props.dispatch} /> }
+                                         dispatch={props.dispatch} />}
                                 />
           <Route path='/dialogs' 
-                 render={ () => <Dialogs state={props.state.dialogsPage} />} />          
+                 render={ () => <Dialogs state={props.state.dialogsPage} 
+                                         dispatch={props.dispatch} />} 
+                                />          
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/setting' component={Setting} />
