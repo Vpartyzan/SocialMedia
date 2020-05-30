@@ -6,8 +6,10 @@ import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../.
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogs.map ( d => <DialogItem name={d.name} id={d.id} />);    
-    let messageElements = props.state.messages.map ( m => {
+    let state = props.dialogsPage;
+
+    let dialogsElements = state.dialogs.map ( d => <DialogItem name={d.name} id={d.id} />);
+    let messageElements = state.messages.map ( m => {
                                                         if (m.side === 'FROM') {
                                                            return <Message class={s.sendFrom} message={m.message} />
                                                         } else if (m.side === 'TO') {
@@ -16,13 +18,12 @@ const Dialogs = (props) => {
                                                     });
 
     let sendMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.sendMessage();
     };
 
     let onMessageChange = (m) => {
         let text = m.target.value;
-        let action = updateNewMessageTextActionCreator(text);
-        props.dispatch(action);
+        props.updateNewMessageTextActionCreator(text);
     };   
 
     return (
@@ -34,7 +35,7 @@ const Dialogs = (props) => {
                 {messageElements}
             </div>
             <div className={s.text}>
-                <textarea onChange={onMessageChange} value={props.state.newMessageText}/>
+                <textarea onChange={onMessageChange} value={state.newMessageText}/>
                 <button onClick={sendMessage}>Send message</button>
             </div>
         </div>
