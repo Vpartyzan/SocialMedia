@@ -7,12 +7,12 @@ const Dialogs = (props) => {
 
     let state = props.dialogsPage;
 
-    let dialogsElements = state.dialogs.map ( d => <DialogItem name={d.name} id={d.id} />);
+    let dialogsElements = state.dialogs.map ( d => <DialogItem name={d.name} key={d.id} id={d.id} />);
     let messageElements = state.messages.map ( m => {
                                                         if (m.side === 'FROM') {
-                                                           return <Message class={s.sendFrom} message={m.message} />
+                                                           return <Message class={s.sendFrom} key={m.id} message={m.message} />
                                                         } else if (m.side === 'TO') {
-                                                           return <Message class={s.sendTo} message={m.message} />
+                                                           return <Message class={s.sendTo} key={m.id} message={m.message} />
                                                         }                                                       
                                                     });
 
